@@ -1,0 +1,5 @@
+DMXTCP::DMXTCP()
+{ for(int i=0;i<512;i++)
+	{ trame[i]=0
+	}
+}

@@ -1,0 +1,39 @@
+#include <iostream>
+#include "IRClientTCP.h"
+#include <windows.h>
+using namespace std;
+
+main()
+{
+	IRClientTCP mon_Client;
+	unsigned char trame[512];
+	int pan, tilt, color, lum;
+
+	for (int i=0; i < 512; i++) trame[i]=0;
+
+
+
+	while (true)
+	{
+		 cout<<"Saisir une valeur de rotation panoramique: ";
+		 cin>>pan;
+		 cout<<"Saisir une valeur de rotation verticale : ";
+		 cin>>tilt;
+		 cout<<"repertoire des couleurs :"<<endl<<"007 : no function"<<endl<<"18 : Magenta"<<endl<<"31 : purple"<<endl<<"43 : orange"<<endl<<"55 : pink"<<endl<<"67 : yellow"<<endl<<"79 : pale green"<<endl<<"91 : light blue"<<endl<<"103 : teal"<<endl<<"115 : sky blue"<<endl<<"127 : blue"<<endl<<"139 : Olive"<<endl<<"151 : Turquoise"<<endl<<"163 : Orange"<<endl<<"175 : yellow"<<endl<<"187 : Magenta"<<endl<<"199 : white"<<endl<<"212 : Color-mix1"<<endl<<"225 : Color-mix2"<<endl<<"239 : Color-mix3"<<endl;
+		 cout<<"Saisir votre couleur : ";
+		 cin>>color;
+		 cout<<"Saisir la luminosite : ";
+		 cin>>lum;
+		 cout<<"Votre valeur est bien envoyee !"<<endl;
+		 trame[0]=pan;
+		 trame[1]=tilt;
+		 trame[2]=lum
+		 trame[3]=color;
+		 mon_Client.SeConnecterAUnServeur("172.20.21.14", 4123);
+		 Sleep(1000);
+		 mon_Client.Envoyer((char*)trame,512);
+		 
+
+	}
+
+}

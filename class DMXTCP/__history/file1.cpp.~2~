@@ -1,0 +1,6 @@
+#include <iostream>
+#include "IRClientTCP.h"
+#include <windows.h>
+using namespace std;
+
+main()
